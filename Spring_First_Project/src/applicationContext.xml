@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="studentbean" class="com.cdac.Student" lazy-init="true">
+	<property name="sname" value="Ishaan"></property>
+	<property name="age" value="20" ></property>
+	</bean>
+
+	<bean id="e1" class="com.cdac.Employee">
+	<constructor-arg value="10" type="int">
+	</constructor-arg>
+	</bean> 
+
+	<bean id="e2" class="com.cdac.Employee">
+	<constructor-arg value="giri">
+	</constructor-arg>
+	</bean> 
+
+	<bean id="e3" class="com.cdac.Employee">
+	<constructor-arg value="25" type="int">
+	</constructor-arg>
+	
+	<constructor-arg value="giri">
+
+	</constructor-arg>
+
+	</bean>
+
+<!--  dependency injection of dependent object through constructor arg -->
+
+
+ 	<bean id="a" class="com.cdac.Address">  
+	<constructor-arg value="calicut"></constructor-arg>  
+	<constructor-arg value="Kerala"></constructor-arg>  
+	<constructor-arg value="India"></constructor-arg>  
+	</bean> 
+
+	<bean id="e4" class="com.cdac.Employee">
+	<constructor-arg value="25" type="int">
+	</constructor-arg>
+	
+	<constructor-arg value="giri">
+	</constructor-arg>
+
+	<constructor-arg>
+	<ref bean="a"/>
+	</constructor-arg>
+	</bean>
+</beans>
+
